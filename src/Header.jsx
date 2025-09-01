@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edited <code>src/App.jsx</code> and save to test HMR - Ana the Best!
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Navbar expand="lg" sticky="top" bg="light" variant="light" collapseOnSelect>
+      <Container>
+        {/* Logo / Brand */}
+        <Navbar.Brand href="#home">Ana Bykova Logo</Navbar.Brand>
+
+        {/* Toggler button */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        {/* Collapsible nav links */}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#about">About Me</Nav.Link>
+            <Nav.Link href="#projects">Projects</Nav.Link>
+            <Nav.Link href="#contact">Contacts</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default App
+export default Header;
+
+/*
+import { useState } from "react";
+
+function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Toggle collapse on button click
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Close navbar after clicking a link
+  const closeNavbar = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <nav className="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#home">Ana Bykova Logo</a>
+
+        /* Toggle button 
+        <button
+          className="navbar-toggler"
+          type="button"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded={isOpen ? "true" : "false"}
+          aria-label="Toggle navigation"
+          onClick={toggleNavbar}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        /* Collapse 
+        <div
+          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
+          id="navbarNavAltMarkup"
+        >
+          <div className="navbar-nav">
+            <a className="nav-link active" href="#home" onClick={closeNavbar}>
+              Home
+            </a>
+            <a className="nav-link" href="#about" onClick={closeNavbar}>
+              About Me
+            </a>
+            <a className="nav-link" href="#projects" onClick={closeNavbar}>
+              Projects
+            </a>
+            <a className="nav-link" href="#contact" onClick={closeNavbar}>
+              Contacts
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default Header;
+*/
